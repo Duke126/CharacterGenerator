@@ -10,21 +10,20 @@ public class Character {
     int wid;
     int cha;
 
-    String[] perk; // skills and languages here
-    //String perk; // skills and languages here
+    String[] perk; // peills and languages here
     String disadvantage;
     String prehistory;
-    String spell;
+    String spell; // Make it class
 
     int ap;// Action Point
     int initiative; // int result = (int)Math.ceil(n); // round up
     int dodge;
     int hp;
 
-    int sk=0; //Accounting of skills
+    int pe=0; //Accounting of perks
 
     Character(String charName, String charRace, int charSex, String charPrehistory, int charStr, int charDex, int charCon, int charIntel, int charWid, int charCha) {
-        perk = new String[100]; // Max number of skills
+        perk = new String[100]; // Max number of peills
 
         name = charName;
         str = charStr;
@@ -36,29 +35,29 @@ public class Character {
 
         prehistory = charPrehistory;
         if (prehistory.equals("Veteran")) {
-            perk[sk] = "Athletics+2"; sk=sk+1;
-            perk[sk] = "Medicine"; sk=sk+1;
-            perk[sk] = "Weapon"; sk=sk+1;
+            perk[pe] = "Athletics+2"; pe=pe+1;
+            perk[pe] = "Medicine"; pe=pe+1;
+            perk[pe] = "Weapon"; pe=pe+1;
         }
 
         race = charRace;
         if (race.equals("Imperial")) {
             intel = intel + 1;
-            perk[sk] = "Language Imperial (Hight)"; sk=sk+1;
-            perk[sk] = "History"; sk=sk+1;
-            perk[sk] = "Magic"; sk = sk+1;
-            perk[sk] = "Nature"; sk = sk+1;
-            perk[sk] = "Religion"; sk = sk+1;
+            perk[pe] = "Language Imperial (Hight)"; pe=pe+1;
+            perk[pe] = "History"; pe=pe+1;
+            perk[pe] = "Magic"; pe = pe+1;
+            perk[pe] = "Nature"; pe = pe+1;
+            perk[pe] = "Religion"; pe = pe+1;
         }
         if (race.equals("Svardian")) {
             cha = cha + 1;
-            perk[sk] = "Language Imperial (Svardian)"; sk=sk+1;
-            perk[sk] = "Conviction"; sk=sk+1;
-            perk[sk] = "Armor"; sk = sk+1;
+            perk[pe] = "Language Imperial (Svardian)"; pe=pe+1;
+            perk[pe] = "Conviction"; pe=pe+1;
+            perk[pe] = "Armor"; pe = pe+1;
         }
-        if (race.equals("Buluskay")) { // some skills are in sex
-            perk[sk] = "Coastal dweller"; sk = sk+1;
-            perk[sk] = "Language Buluskay"; sk=sk+1;
+        if (race.equals("Bulupeay")) { // some peills are in sex
+            perk[pe] = "Coastal dweller"; pe = pe+1;
+            perk[pe] = "Language Bulupeay"; pe=pe+1;
         }
 
         sex = charSex;
@@ -72,7 +71,7 @@ public class Character {
         if (sex==3) { //beta
             con = con+4;
             dex = dex-1;
-            perk[sk] = "Strong body"; sk=sk+1;
+            perk[pe] = "Strong body"; pe=pe+1;
 
         }
         if (sex==4) { //gamma
@@ -80,7 +79,7 @@ public class Character {
             dex = dex +1;
             con = con +1;
             cha = cha -1;
-            perk[sk] = "Common touch"; sk=sk+1;
+            perk[pe] = "Common touch"; pe=pe+1;
         }
 
     }
@@ -89,9 +88,9 @@ public class Character {
         System.out.printf("Name %s %s Sex-%d\n Strength %d Intelligence %d\n Dexterity %d Wisdom %d\n Constitution %d Charisma %d\n",name, race, sex, str, intel, dex, wid, con, cha);
     }
     void displayPerks(){
-        while (sk > 0){
-            sk--;
-            System.out.printf(" %s\n",perk[sk]);
+        while (pe > 0){
+            pe--;
+            System.out.printf(" %s\n",perk[pe]);
         }
     }
 }
